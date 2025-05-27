@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "826467078504",
+    "project_id": "temanfitness",
+    "storage_bucket": "temanfitness.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826467078504:android:88343c5129ee98731646dd",
+        "android_client_info": {
+          "package_name": "com.example.fitnes_ptnit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtr9jGWgI8YqGO5VaF0e7_e1EJ_fRh0pU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
