@@ -1,25 +1,18 @@
-import 'package:fitnes_ptnit/config/app_config.dart';
+import 'package:teman_fitness/config/app_config.dart';
 import 'package:flutter/material.dart';
-import 'package:fitnes_ptnit/model/WorkoutModel.dart';
-import 'package:fitnes_ptnit/detail/detail_workout.dart';
+import 'package:teman_fitness/model/WorkoutModel.dart';
+import 'package:teman_fitness/detail/detail_workout.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const Color darkBluePrimary =
-    Color.fromARGB(255, 0, 7, 65); 
-const Color lightBlueAccent =
-    Color.fromARGB(255, 171, 213, 255); 
-const Color whiteText70 = Colors.white70; 
-const Color whiteText = Colors.white; 
-const Color darkNavyCustom = Color(
-    0xFF0D1B2A); 
+const Color darkBluePrimary = Color.fromARGB(255, 0, 7, 65);
+const Color lightBlueAccent = Color.fromARGB(255, 171, 213, 255);
+const Color whiteText70 = Colors.white70;
+const Color whiteText = Colors.white;
+const Color darkNavyCustom = Color(0xFF0D1B2A);
 
-
-const Color lightBackground =
-    Color(0xFFF0F4F8);
-const Color darkText =
-    Color(0xFF2C3E50);
-const Color mediumText =
-    Color(0xFF5E6B7E); 
+const Color lightBackground = Color(0xFFF0F4F8);
+const Color darkText = Color(0xFF2C3E50);
+const Color mediumText = Color(0xFF5E6B7E);
 
 class WorkoutScreen extends StatelessWidget {
   const WorkoutScreen({super.key});
@@ -36,25 +29,14 @@ class WorkoutScreen extends StatelessWidget {
             color: darkBluePrimary,
           ),
         ),
-        centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_rounded,
-              color: darkBluePrimary), 
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        backgroundColor: Colors.white,
-        elevation: 1, 
       ),
-      backgroundColor: lightBackground, 
+      backgroundColor: lightBackground,
       body: FutureBuilder<List<WorkoutModel>>(
         future: WorkoutModel.fetchWorkout(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-                child: CircularProgressIndicator(
-                    color: darkBluePrimary)); 
+                child: CircularProgressIndicator(color: darkBluePrimary));
           } else if (snapshot.hasError) {
             return Center(
               child: Padding(
@@ -146,12 +128,10 @@ class WorkoutScreen extends StatelessWidget {
                                 return Container(
                                   width: 100,
                                   height: 100,
-                                  color: Colors
-                                      .grey[200], 
+                                  color: Colors.grey[200],
                                   child: Center(
                                     child: CircularProgressIndicator(
-                                      color:
-                                          lightBlueAccent, 
+                                      color: lightBlueAccent,
                                       value: progressValue,
                                     ),
                                   ),
@@ -181,7 +161,7 @@ class WorkoutScreen extends StatelessWidget {
                                   style: GoogleFonts.poppins(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,
-                                    color: darkText, 
+                                    color: darkText,
                                   ),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
@@ -191,8 +171,7 @@ class WorkoutScreen extends StatelessWidget {
                                   workout.description,
                                   style: GoogleFonts.poppins(
                                     fontSize: 13,
-                                    color:
-                                        mediumText, 
+                                    color: mediumText,
                                   ),
                                   maxLines: 3,
                                   overflow: TextOverflow.ellipsis,
@@ -204,8 +183,7 @@ class WorkoutScreen extends StatelessWidget {
                                     'Lihat Detail >',
                                     style: GoogleFonts.poppins(
                                       fontSize: 14,
-                                      color:
-                                          lightBlueAccent, 
+                                      color: lightBlueAccent,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),

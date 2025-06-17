@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:fitnes_ptnit/config/app_config.dart';
+import 'package:teman_fitness/config/app_config.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 

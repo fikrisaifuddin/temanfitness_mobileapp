@@ -1,6 +1,6 @@
-import 'package:fitnes_ptnit/config/app_config.dart';
+import 'package:teman_fitness/config/app_config.dart';
 import 'package:flutter/material.dart';
-import 'package:fitnes_ptnit/model/WorkoutModel.dart';
+import 'package:teman_fitness/model/WorkoutModel.dart';
 import 'package:google_fonts/google_fonts.dart'; 
 
 const Color darkBluePrimary =

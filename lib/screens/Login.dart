@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:fitnes_ptnit/config/app_config.dart';
+import 'package:teman_fitness/config/app_config.dart';
+import 'package:teman_fitness/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:fitnes_ptnit/bottom_nav_bar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart'; // Import Google Fonts
@@ -71,9 +71,8 @@ class _LoginScreenState extends State<LoginScreen> {
         await _saveStatus(user['status'] ?? '');
 
         if (!mounted) return;
-        Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => BottomNavBar()),
-          (Route<dynamic> route) => false,
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => SplashScreen()),
         );
       } else {
         final error = jsonDecode(response.body);
@@ -162,22 +161,19 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // --- Logo Aplikasi ---
                   Image.asset(
-                    'assets/logo.png', // Pastikan Anda memiliki logo yang cocok
-                    width: 180, // Ukuran logo disesuaikan
+                    'assets/logo.png',
+                    width: 180,
                     height: 180,
                   ),
                   const SizedBox(height: 16),
-                  // --- Judul Aplikasi ---
                   Text(
                     'Teman Fitness',
                     style: GoogleFonts.poppins(
-                      // Menggunakan Poppins Font
                       color: Colors.white,
-                      fontSize: 32, // Ukuran font lebih besar
+                      fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 2, // Jarak antar huruf lebih lebar
+                      letterSpacing: 2,
                     ),
                   ),
                   Text(

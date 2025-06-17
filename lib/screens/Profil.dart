@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:fitnes_ptnit/screens/Login.dart';
-import 'package:fitnes_ptnit/screens/Workout.dart';
+import 'package:teman_fitness/screens/Login.dart';
+import 'package:teman_fitness/screens/Workout.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const Color darkBluePrimary =
-    Color.fromARGB(255, 0, 7, 65); 
-const Color lightBlueAccent =
-    Color.fromARGB(255, 171, 213, 255); 
-const Color whiteText70 = Colors.white70; 
-const Color whiteText = Colors.white; 
-const Color darkNavyCustom = Color(0xFF0D1B2A); 
+const Color darkBluePrimary = Color.fromARGB(255, 0, 7, 65);
+const Color lightBlueAccent = Color.fromARGB(255, 171, 213, 255);
+const Color whiteText70 = Colors.white70;
+const Color whiteText = Colors.white;
+const Color darkNavyCustom = Color(0xFF0D1B2A);
 
-const Color lightBackground =
-    Color(0xFFF0F4F8); 
-const Color textColorDark =
-    Color(0xFF2C3E50); 
-const Color textColorMedium =
-    Color(0xFF5E6B7E); 
-const Color dividerColor = Color(0xFFE0E0E0); 
+const Color lightBackground = Color(0xFFF0F4F8);
+const Color textColorDark = Color(0xFF2C3E50);
+const Color textColorMedium = Color(0xFF5E6B7E);
+const Color dividerColor = Color(0xFFE0E0E0);
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -83,14 +78,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Text(
               'Batal',
               style: GoogleFonts.poppins(
-                  color: darkBluePrimary), // Using darkBluePrimary
+                  color: darkBluePrimary), 
             ),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
             style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  darkBluePrimary, // Logout button using darkBluePrimary
+              backgroundColor: const Color.fromARGB(
+                  255, 255, 4, 4), 
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
             ),
@@ -458,14 +453,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             children: [
                               ListTile(
                                 leading: const Icon(Icons.logout_rounded,
-                                    color:
-                                        darkBluePrimary), // Icon logout darkBluePrimary
+                                    color: darkBluePrimary),
                                 title: Text(
                                   'Logout',
                                   style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w500,
-                                      color:
-                                          darkBluePrimary), // Text logout darkBluePrimary
+                                      color: darkBluePrimary),
                                 ),
                                 onTap: _confirmLogout,
                               ),

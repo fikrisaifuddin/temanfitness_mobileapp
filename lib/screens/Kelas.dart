@@ -1,26 +1,19 @@
-import 'package:fitnes_ptnit/config/app_config.dart';
+import 'package:teman_fitness/config/app_config.dart';
 import 'package:flutter/material.dart';
-import 'package:fitnes_ptnit/model/KelasModel.dart';
-import 'package:fitnes_ptnit/detail/detail_kelas.dart';
-import 'package:google_fonts/google_fonts.dart'; 
+import 'package:teman_fitness/model/KelasModel.dart';
+import 'package:teman_fitness/detail/detail_kelas.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-
-const Color darkBluePrimary =
-    Color.fromARGB(255, 0, 7, 65); 
-const Color lightBlueAccent =
-    Color.fromARGB(255, 171, 213, 255); 
+const Color darkBluePrimary = Color.fromARGB(255, 0, 7, 65);
+const Color lightBlueAccent = Color.fromARGB(255, 171, 213, 255);
 const Color whiteText70 = Colors.white70;
-const Color whiteText = Colors.white; 
-const Color darkNavyCustom = Color(
-    0xFF0D1B2A); 
+const Color whiteText = Colors.white;
+const Color darkNavyCustom = Color(0xFF0D1B2A);
 
-const Color lightBackground =
-    Color(0xFFF0F4F8); 
-const Color textColorDark =
-    Color(0xFF2C3E50); 
-const Color textColorMedium =
-    Color(0xFF5E6B7E); 
-const Color dividerColor = Color(0xFFE0E0E0); 
+const Color lightBackground = Color(0xFFF0F4F8);
+const Color textColorDark = Color(0xFF2C3E50);
+const Color textColorMedium = Color(0xFF5E6B7E);
+const Color dividerColor = Color(0xFFE0E0E0);
 
 class KelasScreen extends StatefulWidget {
   @override
@@ -40,33 +33,22 @@ class _KelasScreenState extends State<KelasScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
         title: Text(
-          'Daftar Kelas', 
+          'Daftar Kelas',
           style: GoogleFonts.poppins(
             fontSize: 22,
             fontWeight: FontWeight.w700,
-            color: textColorDark, 
+            color: textColorDark,
           ),
         ),
-        centerTitle: true, 
-        leading: IconButton(
-         
-          icon: const Icon(Icons.arrow_back_ios_rounded,
-              color: darkBluePrimary), 
-          onPressed: () {
-            Navigator.pop(context); 
-          },
-        ),
       ),
-      backgroundColor: lightBackground, 
+      backgroundColor: lightBackground,
       body: FutureBuilder<List<KelasModel>>(
         future: _kelasFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-                child: CircularProgressIndicator(
-                    color: darkBluePrimary)); 
+                child: CircularProgressIndicator(color: darkBluePrimary));
           } else if (snapshot.hasError) {
             return Center(
               child: Padding(
@@ -107,8 +89,7 @@ class _KelasScreenState extends State<KelasScreen> {
           final kelasList = snapshot.data!;
 
           return ListView.builder(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 20.0, vertical: 20), 
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
             itemCount: kelasList.length,
             itemBuilder: (context, index) {
               final kelas = kelasList[index];
@@ -123,15 +104,13 @@ class _KelasScreenState extends State<KelasScreen> {
                   );
                 },
                 child: Container(
-                  margin: const EdgeInsets.only(
-                      bottom: 16), 
+                  margin: const EdgeInsets.only(bottom: 16),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius:
-                        BorderRadius.circular(20), 
+                    borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.08), 
+                        color: Colors.black.withOpacity(0.08),
                         blurRadius: 15,
                         spreadRadius: 1,
                         offset: const Offset(0, 8),
@@ -139,15 +118,12 @@ class _KelasScreenState extends State<KelasScreen> {
                     ],
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(
-                        16), 
+                    padding: const EdgeInsets.all(16),
                     child: Row(
-                      crossAxisAlignment:
-                          CrossAxisAlignment.start, 
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(
-                              15),
+                          borderRadius: BorderRadius.circular(15),
                           child: Image.network(
                             "${AppConfig.baseUrl}/storage/${kelas.foto}",
                             width: 100,
@@ -164,12 +140,10 @@ class _KelasScreenState extends State<KelasScreen> {
                               return Container(
                                 width: 100,
                                 height: 100,
-                                color: Colors
-                                    .grey[200], 
+                                color: Colors.grey[200],
                                 child: Center(
                                   child: CircularProgressIndicator(
-                                    color: darkBluePrimary.withOpacity(
-                                        0.7), 
+                                    color: darkBluePrimary.withOpacity(0.7),
                                     value: progressValue,
                                   ),
                                 ),
@@ -189,8 +163,7 @@ class _KelasScreenState extends State<KelasScreen> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                            width: 18),
+                        const SizedBox(width: 18),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -199,20 +172,20 @@ class _KelasScreenState extends State<KelasScreen> {
                                 kelas.namaKelas,
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18, 
+                                  fontSize: 18,
                                   color: textColorDark,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
-                              const SizedBox(height: 8), 
+                              const SizedBox(height: 8),
                               Text(
-                                kelas.deskripsi, 
+                                kelas.deskripsi,
                                 style: GoogleFonts.poppins(
                                   fontSize: 13,
                                   color: textColorMedium,
                                 ),
-                                maxLines: 3, 
+                                maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                               ),
                               const SizedBox(height: 10),

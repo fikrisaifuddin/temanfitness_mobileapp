@@ -1,7 +1,7 @@
-import 'package:fitnes_ptnit/screens/Home.dart';
-import 'package:fitnes_ptnit/screens/Kelas.dart';
-import 'package:fitnes_ptnit/screens/Profil.dart'; 
-import 'package:fitnes_ptnit/screens/Workout.dart';
+import 'package:teman_fitness/screens/Home.dart';
+import 'package:teman_fitness/screens/Kelas.dart';
+import 'package:teman_fitness/screens/Profil.dart'; 
+import 'package:teman_fitness/screens/Workout.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:google_fonts/google_fonts.dart';

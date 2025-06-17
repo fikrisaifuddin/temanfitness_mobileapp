@@ -1,4 +1,4 @@
-import 'package:fitnes_ptnit/config/app_config.dart';
+import 'package:teman_fitness/config/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'MentorModel.dart';

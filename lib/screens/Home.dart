@@ -1,30 +1,24 @@
 import 'dart:async';
-import 'package:fitnes_ptnit/config/app_config.dart';
+import 'package:teman_fitness/config/app_config.dart';
 import 'package:flutter/material.dart';
-import 'package:fitnes_ptnit/model/WorkoutModel.dart';
-import 'package:fitnes_ptnit/model/MentorModel.dart';
-import 'package:fitnes_ptnit/model/BannerModel.dart';
-import 'package:fitnes_ptnit/model/KelasModel.dart';
-import 'package:fitnes_ptnit/detail/detail_workout.dart';
-import 'package:fitnes_ptnit/detail/detail_mentor.dart';
-import 'package:fitnes_ptnit/detail/detail_kelas.dart';
-import 'package:google_fonts/google_fonts.dart'; 
+import 'package:teman_fitness/model/WorkoutModel.dart';
+import 'package:teman_fitness/model/MentorModel.dart';
+import 'package:teman_fitness/model/BannerModel.dart';
+import 'package:teman_fitness/model/KelasModel.dart';
+import 'package:teman_fitness/detail/detail_workout.dart';
+import 'package:teman_fitness/detail/detail_mentor.dart';
+import 'package:teman_fitness/detail/detail_kelas.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-
-const Color darkBluePrimary =
-    Color.fromARGB(255, 0, 7, 65);
-const Color lightBlueAccent =
-    Color.fromARGB(255, 171, 213, 255); 
-const Color whiteText70 = Colors.white70; 
+const Color darkBluePrimary = Color.fromARGB(255, 0, 7, 65);
+const Color lightBlueAccent = Color.fromARGB(255, 171, 213, 255);
+const Color whiteText70 = Colors.white70;
 const Color whiteText = Colors.white;
 const Color darkNavyCustom = Color(0xFF0D1B2A);
 
-const Color lightBackground =
-    Color(0xFFF0F4F8);
-const Color darkText =
-    Color(0xFF2C3E50); 
-const Color mediumText =
-    Color(0xFF5E6B7E); 
+const Color lightBackground = Color(0xFFF0F4F8);
+const Color darkText = Color(0xFF2C3E50);
+const Color mediumText = Color(0xFF5E6B7E);
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -130,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
             .toList();
 
     return Scaffold(
-      backgroundColor: lightBackground, 
+      backgroundColor: lightBackground,
       body: SafeArea(
         child: (_allWorkout.isEmpty &&
                 _allMentor.isEmpty &&
@@ -142,41 +136,36 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildBanner(),
-                    const SizedBox(
-                        height: 24), 
+                    const SizedBox(height: 24),
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
                         controller: _searchController,
-                        style: GoogleFonts.poppins(
-                            fontSize: 16, color: darkText), 
+                        style:
+                            GoogleFonts.poppins(fontSize: 16, color: darkText),
                         decoration: InputDecoration(
                           hintText: 'Cari workout, mentor, atau kelas...',
                           hintStyle:
                               GoogleFonts.poppins(color: Colors.grey[500]),
                           prefixIcon: Icon(Icons.search, color: mediumText),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(
-                                15), 
+                            borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide.none,
                           ),
                           filled: true,
-                          fillColor:
-                              Colors.white, 
+                          fillColor: Colors.white,
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 16, horizontal: 20),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide(
-                                color: Colors.grey[200]!, width: 1.0),
+                                color: Color(0xFF001F3F).withOpacity(0.5),
+                                width: 1.0),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide(
-                                color: darkBluePrimary.withOpacity(
-                                    0.5),
-                                width: 2.0),
+                                color: Color(0xFF001F3F), width: 2.0),
                           ),
                         ),
                         onChanged: (value) {
@@ -187,7 +176,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     const SizedBox(height: 24),
-
                     if (filteredWorkout.isNotEmpty)
                       _buildSection(
                           "Workout Mandiri",
@@ -197,8 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           (item) => "${AppConfig.baseUrl}/storage/${item.gif}",
                           (item) => item.name,
                           (item) => item.description,
-                          icon: Icons.fitness_center), 
-
+                          icon: Icons.fitness_center),
                     if (filteredMentor.isNotEmpty)
                       Padding(
                         padding: const EdgeInsets.only(top: 24),
@@ -213,7 +200,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             (item) => item.expertise,
                             icon: Icons.person_outline),
                       ),
-
                     if (filteredKelas.isNotEmpty)
                       Padding(
                         padding: const EdgeInsets.only(top: 24),
@@ -226,10 +212,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 "${AppConfig.baseUrl}/storage/${item.foto}",
                             (item) => item.namaKelas,
                             (item) => item.deskripsi,
-                            icon: Icons.group_work_outlined), 
+                            icon: Icons.group_work_outlined),
                       ),
-                    const SizedBox(
-                        height: 32), 
+                    const SizedBox(height: 32),
                   ],
                 ),
               ),
@@ -323,9 +308,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 banner.judul,
                                 style: GoogleFonts.poppins(
-                                  color:
-                                      whiteText, 
-                                  fontSize: 24, 
+                                  color: whiteText,
+                                  fontSize: 24,
                                   fontWeight: FontWeight.bold,
                                   shadows: [
                                     Shadow(
@@ -340,8 +324,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Text(
                                 banner.deskripsi,
                                 style: GoogleFonts.poppins(
-                                  color:
-                                      whiteText70, 
+                                  color: whiteText70,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                   shadows: [
@@ -372,16 +355,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(banners.length, (index) {
                   return Container(
-                    width: _currentPage == index
-                        ? 24.0
-                        : 8.0, 
+                    width: _currentPage == index ? 24.0 : 8.0,
                     height: 8.0,
                     margin: const EdgeInsets.symmetric(horizontal: 4.0),
                     decoration: BoxDecoration(
                       color: _currentPage == index
-                          ? lightBlueAccent 
-                          : whiteText
-                              .withOpacity(0.6), 
+                          ? lightBlueAccent
+                          : whiteText.withOpacity(0.6),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                   );
@@ -413,10 +393,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Row(
             children: [
-              if (icon != null)
-                Icon(icon,
-                    size: 28,
-                    color: darkBluePrimary), 
+              if (icon != null) Icon(icon, size: 28, color: darkBluePrimary),
               const SizedBox(width: 8),
               Text(
                 title,
@@ -434,7 +411,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(height: 16),
           SizedBox(
-            height: 210, 
+            height: 210,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: dataList.length,
@@ -450,13 +427,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                   child: Container(
-                    width: 170, 
-                    margin:
-                        const EdgeInsets.only(right: 16), 
+                    width: 170,
+                    margin: const EdgeInsets.only(right: 16),
                     decoration: BoxDecoration(
-                      color: Colors.white, 
-                      borderRadius:
-                          BorderRadius.circular(18), 
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(18),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.08),
@@ -474,7 +449,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               top: Radius.circular(18)),
                           child: Image.network(
                             imageUrlBuilder(item),
-                            height: 110, 
+                            height: 110,
                             width: double.infinity,
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) =>
@@ -490,8 +465,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.all(
-                                12.0), 
+                            padding: const EdgeInsets.all(12.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -519,8 +493,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     'Detail >',
                                     style: GoogleFonts.poppins(
                                         fontSize: 12,
-                                        color:
-                                            lightBlueAccent, 
+                                        color: lightBlueAccent,
                                         fontWeight: FontWeight.w600),
                                   ),
                                 ),
